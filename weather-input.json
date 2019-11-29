@@ -3,5 +3,6 @@
   "mqport":"30117",
   "mquser":"heyile",
   "mqpassword":"12e3k8jdas",
-  "eureka":"http://192.168.2.136:30115/eureka/"
+  "eureka":"http://192.168.2.136:30115/eureka/",
+  "sslEnabled": "true"
 }
