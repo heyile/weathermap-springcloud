@@ -24,7 +24,9 @@ public class WeatherImpl {
         return cacheUtil.getCurrentWeatherSummary(StringUtils.isNotBlank(city) ? city : "shenzhen,cn");
     }
 
-    public String serviceFallback() { // fallback方法
-        return "error";
+    public CurrentWeatherSummary serviceFallback() { // fallback方法
+        System.out.println("weather --------------- callback");
+        return new CurrentWeatherSummary();
     }
+
 }

@@ -18,13 +18,13 @@ public class ForecastController {
     @Autowired
     CacheUtil cacheUtil;
 
-    @HystrixCommand(fallbackMethod = "serviceFallback")
     @RequestMapping(value = "/show")
+    @HystrixCommand(fallbackMethod = "serviceFallback")
     public ForecastSummary getForecast(@RequestParam("city") String city) {
         return cacheUtil.getForecastWeatherSummary(StringUtils.isNotBlank(city) ? city : "ShenZhen,CN");
     }
 
-    public String serviceFallback() { // fallback方法
-        return "error";
+    public ForecastSummary serviceFallback() { // fallback方法
+        return new ForecastSummary();
     }
 }

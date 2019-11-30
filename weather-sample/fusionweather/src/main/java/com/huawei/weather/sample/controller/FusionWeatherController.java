@@ -16,15 +16,21 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @RequestMapping("/fusionweather")
 public class FusionWeatherController {
 
-    @Autowired
-    RestTemplate restTemplate;
+  @Autowired
+  RestTemplate restTemplate;
 
-    @Autowired
-    private FusionweatherService fusionweatherdataService;
+  @Autowired
+  private FusionweatherService fusionweatherdataService;
 
-    @HystrixCommand()
-    @RequestMapping("/show")
-    public FusionWeatherSummary show(@RequestParam("city") String city, @RequestParam(value = "user", required = false) String user) {
-        return fusionweatherdataService.showFusionWeather(city, user);
-    }
+  @HystrixCommand(fallbackMethod = "helloFallBack")
+  @RequestMapping("/show")
+  public FusionWeatherSummary show(@RequestParam("city") String city,
+      @RequestParam(value = "user", required = false) String user) {
+    return fusionweatherdataService.showFusionWeather(city, user);
+  }
+
+  public FusionWeatherSummary helloFallBack() {
+    System.out.println("fusion weather ==============");
+    return new FusionWeatherSummary();
+  }
 }
