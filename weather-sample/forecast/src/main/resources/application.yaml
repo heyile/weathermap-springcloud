@@ -9,7 +9,7 @@ spring:
     username: ${mquser:rkd}
     password: ${mqpassword:pwd}
     ssl:
-      enabled: ${sslEnabled:false}
+      enabled: false
       verify-hostname: false
       validate-server-certificate: false
 eureka:

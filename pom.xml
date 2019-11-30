@@ -7,7 +7,6 @@
         <module>consumer</module>
         <module>provider</module>
         <module>weather-sample</module>
-        <module>local-eureka</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
