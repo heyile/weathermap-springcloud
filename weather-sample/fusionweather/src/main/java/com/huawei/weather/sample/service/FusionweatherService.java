@@ -16,7 +16,6 @@ public class FusionweatherService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "helloFallBack")
     public FusionWeatherSummary showFusionWeather(String city, String user) {
         FusionWeatherSummary summary = new FusionWeatherSummary();
         summary.setCurrentWeather(achieveCurrentWeatherSummary(city, user));
@@ -34,7 +33,4 @@ public class FusionweatherService {
         return restTemplate.getForObject(url, ForecastWeatherSummary.class);
     }
 
-    public String helloFallBack() {
-        return "sorry ribbon, it's error!";
-    }
 }
