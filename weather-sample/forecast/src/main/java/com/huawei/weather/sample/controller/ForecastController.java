@@ -24,7 +24,7 @@ public class ForecastController {
         return cacheUtil.getForecastWeatherSummary(StringUtils.isNotBlank(city) ? city : "ShenZhen,CN");
     }
 
-    public ForecastSummary serviceFallback() { // fallback方法
-        return new ForecastSummary();
-    }
+  public ForecastSummary serviceFallback(String city) { // fallback方法
+    return new ForecastSummary();
+  }
 }

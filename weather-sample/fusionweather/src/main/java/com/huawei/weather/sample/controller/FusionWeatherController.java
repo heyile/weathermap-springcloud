@@ -29,7 +29,7 @@ public class FusionWeatherController {
     return fusionweatherdataService.showFusionWeather(city, user);
   }
 
-  public FusionWeatherSummary helloFallBack() {
+  public FusionWeatherSummary helloFallBack(String ha, String hs1) {
     System.out.println("fusion weather ==============");
     return new FusionWeatherSummary();
   }
