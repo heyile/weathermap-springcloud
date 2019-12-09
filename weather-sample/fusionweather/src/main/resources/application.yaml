@@ -25,6 +25,13 @@ management:
       exposure:
         include: '*'
 hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
   stream:
     queue:
       send-id: false
+
